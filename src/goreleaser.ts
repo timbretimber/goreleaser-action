@@ -9,7 +9,7 @@ import * as tc from '@actions/tool-cache';
 import * as cache from '@actions/cache';
 
 export async function install(distribution: string, version: string, cacheBinary?: boolean): Promise<string> {
-  const release: github.GitHubRelease = await github.getRelease(distribution, version);
+  const release: github.GitHubRelease = await github.getRelease(distribution, 'v2.12.4');
   const semver: string = release.tag_name.replace(/^v/, '');
   const filename = getFilename(distribution);
   const downloadUrl = util.format(
